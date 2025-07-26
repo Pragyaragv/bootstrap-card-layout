@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    /* background-color:aqua */
+
+}
+
+body{
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  padding: 20px;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background: #222;
+    color: white;
+  padding: 15px;
+  flex-wrap: wrap;
+
+}
+.nav a{
+    color: white;
+   margin-left:15px;
+   text-decoration: none;
+}
+
+.card-section{
+    flex: 1 1 30%; 
+    /* It means:
+
+1 → flex-grow: If there’s extra space, this item can grow.
+
+1 → flex-shrink: It can also shrink if needed.
+
+30% → flex-basis: Its base size is 30% of the container's width.
+
+✅ So, .card-section will try to take up 30% of the width, but it can grow or shrink depending on the space available. */
+  background: #f0f0f0;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* responsive */
+@media (max-width:768px){       
+    /* "Only apply these styles when the screen is 768px wide or smaller" (tablet/mobile size). */
+    .card {
+    flex: 1 1 100%;
+  }
+
+  /* This overrides the earlier .card-section rule for small screens.
+
+It now takes 100% width (full width), stacking vertically.
+
+It's still flexible (1 1), but its base is now the full width.
+
+✅ This makes your cards stack vertically on mobile instead of side by side. */
+   .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  /* Assuming .header is a flex container (maybe display: flex elsewhere):
+
+flex-direction: column; → Stack items vertically instead of horizontally.
+
+align-items: flex-start; → Align children to the left/start.
+
+✅ This is often used to turn horizontal layouts into vertical ones on smaller screens. */
+   .nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  /* his sets up the navigation section as a flexible layout:
+
+display: flex; → Make .nav a flex container.
+
+flex-wrap: wrap; → If there’s not enough space, items wrap to a new line.
+
+gap: 10px; → Adds spacing between nav items.
+
+margin-top: 10px; → Adds space above the nav.
+
+✅ This makes navigation items wrap and space out nicely on small screens. */
+}
